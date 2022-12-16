@@ -1,0 +1,52 @@
+GET http://localhost:5000/types
+
+
+###
+GET http://localhost:5000/types/639c203a8090ec4349c501b6
+
+
+###
+POST http://localhost:5000/types
+Content-Type: application/json
+
+{
+    "name": "sepatu"
+}
+
+###
+PATCH http://localhost:5000/types/639c203a8090ec4349c501b6
+Content-Type: application/json
+
+{
+    "name": "botol"
+}
+
+###
+DELETE http://localhost:5000/types/639c203a8090ec4349c501b6
+
+###
+GET http://localhost:5000/category
+
+###
+POST http://localhost:5000/category
+Content-Type: application/json
+
+{
+    "name": "baju koko",
+    "type": "baju"
+}
+
+###
+GET http://localhost:5000/category/639c3aef78ab152d4773d018
+
+###
+PATCH http://localhost:5000/category/639c3aef78ab152d4773d018
+Content-Type: application/json
+
+{
+    "name": "jeans",
+    "type": "celana"
+}
+
+###
+DELETE http://localhost:5000/category/639c3aef78ab152d4773d018
