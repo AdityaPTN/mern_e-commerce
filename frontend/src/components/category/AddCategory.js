@@ -7,6 +7,7 @@ import { Container, Row, Form, Button } from 'react-bootstrap';
 const AddCategory = () => {
     const [name, setName] = useState("");
     const [type, setType] = useState("");
+    
     const [types, setTypes] = useState([]);
     const navigate = useNavigate();
 
