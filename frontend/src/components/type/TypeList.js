@@ -26,8 +26,8 @@ const TypeList = () => {
 
     return (
         <Container className="my-4">
+            <Link to="add" class='btn btn-success my-2 mx-5'>Add Type</Link>
             <Row className="justify-content-md-center mx-5">
-            <Link to="add" className='button'>Add Type</Link>
                 <Table striped bordered hover variant="dark">
                     <thead>
                         <tr>
@@ -42,7 +42,7 @@ const TypeList = () => {
                             <td>{index + 1}</td>
                             <td>{type.name}</td>
                             <td>
-                            <Link to={`edit/${type._id}`}>Edit</Link>
+                            <Link to={`edit/${type._id}`} class="btn btn-primary mx-2" >Edit</Link>
                             <Button onClick={()=> deleteType(type._id)} variant="danger">Delete</Button>
                             </td>
                         </tr>

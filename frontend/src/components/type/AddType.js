@@ -23,12 +23,12 @@ const AddType = () => {
     return (
         <Container className="my-4">
             <Row className="justify-content-md-center mx-5">
-            <Link to="/type" className='button'>Back</Link>
                 <Form onSubmit={saveType}>
                     <Form.Group className="mb-3" controlId="formBasicType">
                         <Form.Label>Name</Form.Label>
                         <Form.Control type="text" placeholder="Enter type name" value={name} onChange={(e)=> setName(e.target.value)}/>
                     </Form.Group>
+                    <Link to="/type" class='btn btn-success mx-2'>Back</Link>
                     <Button variant="primary" type="submit">Add Type</Button>
                 </Form>
             </Row>

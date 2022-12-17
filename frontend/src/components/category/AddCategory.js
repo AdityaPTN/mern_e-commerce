@@ -40,7 +40,6 @@ const AddCategory = () => {
     return (
         <Container className="my-4">
             <Row className="justify-content-md-center mx-5">
-            <Link to="/category" className='button'>Back</Link>
                 <Form onSubmit={saveCategory}>
                     <Form.Group className="mb-3" >
                         <Form.Label>Name</Form.Label>
@@ -51,9 +50,10 @@ const AddCategory = () => {
                         <Form.Select value={type} onChange={handleChangeType}>
                             {types.map((type)=> (
                                 <option key={type.value} value={type.value}>{type.name}</option>
-                            ))}
+                                ))}
                         </Form.Select>
                     </Form.Group>
+                    <Link to="/category" class='btn btn-success mx-2'>Back</Link>
                     <Button variant="primary" type="submit">Add Category</Button>
                 </Form>
             </Row>

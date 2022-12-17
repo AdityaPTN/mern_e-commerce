@@ -49,7 +49,6 @@ const EditCategory = () => {
     return (
         <Container className="my-4">
             <Row className="justify-content-md-center mx-5">
-            <Link to="/category" className='button'>Back</Link>
                 <Form onSubmit={updateCategory}>
                     <Form.Group className="mb-3" >
                         <Form.Label>Name</Form.Label>
@@ -63,6 +62,7 @@ const EditCategory = () => {
                             ))}
                         </Form.Select>
                     </Form.Group>
+                    <Link to="/category" class='btn btn-success mx-2'>Back</Link>
                     <Button variant="primary" type="submit">Update Category</Button>
                 </Form>
             </Row>

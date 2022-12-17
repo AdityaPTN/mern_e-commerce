@@ -26,8 +26,8 @@ const CategoryList = () => {
 
     return (
         <Container className="my-4">
+            <Link to="add" class='btn btn-success my-2 mx-5'>Add Category</Link>
             <Row className="justify-content-md-center mx-5">
-            <Link to="add" className='button'>Add Category</Link>
                 <Table striped bordered hover variant="dark">
                     <thead>
                         <tr>
@@ -44,7 +44,7 @@ const CategoryList = () => {
                             <td>{category.name}</td>
                             <td>{category.type}</td>
                             <td>
-                            <Link to={`edit/${category._id}`}>Edit</Link>
+                            <Link to={`edit/${category._id}`} class="btn btn-primary mx-2">Edit</Link>
                             <Button onClick={()=> deleteCategory(category._id)} variant="danger">Delete</Button>
                             </td>
                         </tr>
