@@ -7,12 +7,19 @@ import { Container, Row, Form, Button } from 'react-bootstrap';
 const EditCategory = () => {
     const [name, setName] = useState("");
     const [type, setType] = useState("");
+    const [types, setTypes] = useState([]);
     const navigate = useNavigate();
     const {id} = useParams();
 
     useEffect(()=>{
         getCategoryById();
+        getTypes();
     },[]);
+
+    const getTypes = async() => {
+        const res = await axios.get('http://localhost:5000/type');
+        setTypes(res.data);
+    }
 
     const getCategoryById = async() => {
         const res = await axios.get(`http://localhost:5000/category/${id}`);
@@ -34,6 +41,11 @@ const EditCategory = () => {
         }
     }
 
+    const handleChangeType = e => {
+        console.log(e.target.value);
+        setType(e.target.value);
+    }
+
     return (
         <Container className="my-4">
             <Row className="justify-content-md-center mx-5">
@@ -45,7 +57,11 @@ const EditCategory = () => {
                     </Form.Group>
                     <Form.Group className="mb-3">
                         <Form.Label>Type</Form.Label>
-                        <Form.Control type="text" placeholder="Enter type name" value={type} onChange={(e)=> setType(e.target.value)}/>
+                        <Form.Select value={type} onChange={handleChangeType}>
+                            {types.map((type)=> (
+                                <option key={type.value} value={type.value}>{type.name}</option>
+                            ))}
+                        </Form.Select>
                     </Form.Group>
                     <Button variant="primary" type="submit">Update Category</Button>
                 </Form>

@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import axios from "axios";
 import { useNavigate, Link } from 'react-router-dom';
 import { Container, Row, Form, Button } from 'react-bootstrap';
@@ -7,7 +7,17 @@ import { Container, Row, Form, Button } from 'react-bootstrap';
 const AddCategory = () => {
     const [name, setName] = useState("");
     const [type, setType] = useState("");
+    const [types, setTypes] = useState([]);
     const navigate = useNavigate();
+
+    useEffect(()=> {
+        getTypes();
+    },[]);
+
+    const getTypes = async() => {
+        const res = await axios.get('http://localhost:5000/type');
+        setTypes(res.data);
+    }
 
     const saveCategory = async(e) => {
         e.preventDefault();
@@ -22,6 +32,11 @@ const AddCategory = () => {
         }
     }
 
+    const handleChangeType = e => {
+        console.log(e.target.value);
+        setType(e.target.value);
+    }
+
     return (
         <Container className="my-4">
             <Row className="justify-content-md-center mx-5">
@@ -33,7 +48,11 @@ const AddCategory = () => {
                     </Form.Group>
                     <Form.Group className="mb-3">
                         <Form.Label>Type</Form.Label>
-                        <Form.Control type="text" placeholder="Enter type name" value={type} onChange={(e)=> setType(e.target.value)}/>
+                        <Form.Select value={type} onChange={handleChangeType}>
+                            {types.map((type)=> (
+                                <option key={type.value} value={type.value}>{type.name}</option>
+                            ))}
+                        </Form.Select>
                     </Form.Group>
                     <Button variant="primary" type="submit">Add Category</Button>
                 </Form>
