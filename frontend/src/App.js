@@ -2,6 +2,7 @@ import {BrowserRouter, Routes, Route} from "react-router-dom";
 import AddCategory from "./components/category/AddCategory";
 import CategoryList from "./components/category/CategoryList";
 import EditCategory from "./components/category/EditCategory";
+import Dashboard from "./components/Dashboard";
 import Header from "./components/Header";
 import AddProduct from "./components/product/AddProduct";
 import EditProduct from "./components/product/EditProduct";
@@ -16,6 +17,7 @@ function App() {
     <BrowserRouter>
       <Header />
       <Routes>
+      <Route path="/" element={<Dashboard />} />
         <Route path="/type" element={<TypeList />} />
         <Route path="/type/add" element={<AddType />} />
         <Route path="/type/edit/:id" element={<EditType />} />

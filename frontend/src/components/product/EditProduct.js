@@ -83,7 +83,7 @@ const EditProduct = () => {
                         </Form.Select>
                     </Form.Group>
                     <Link to="/product" class='btn btn-success mx-2'>Back</Link>
-                    <Button variant="primary" type="submit">Add Product</Button>
+                    <Button variant="primary" type="submit">Update Product</Button>
                 </Form>
             </Row>
         </Container>
