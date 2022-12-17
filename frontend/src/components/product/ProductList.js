@@ -26,7 +26,7 @@ const ProductList = () => {
 
     return (
         <Container className="my-4">
-            <Link to="add" class='btn btn-success my-2 mx-5'>Add Category</Link>
+            <Link to="add" class='btn btn-success my-2 mx-5'>Add Product</Link>
             <Row className="justify-content-md-center mx-5">
                 <Table striped bordered hover variant="dark">
                     <thead>

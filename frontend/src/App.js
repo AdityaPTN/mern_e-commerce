@@ -4,6 +4,7 @@ import CategoryList from "./components/category/CategoryList";
 import EditCategory from "./components/category/EditCategory";
 import Header from "./components/Header";
 import AddProduct from "./components/product/AddProduct";
+import EditProduct from "./components/product/EditProduct";
 import ProductList from "./components/product/ProductList";
 import AddType from "./components/type/AddType";
 import EditType from "./components/type/EditType";
@@ -23,7 +24,7 @@ function App() {
         <Route path="/category/edit/:id" element={<EditCategory />} />
         <Route path="/product" element={<ProductList />} />
         <Route path="/product/add" element={<AddProduct />} />
-        {/* <Route path="/product/edit/:id" element={<EditProduct />} /> */}
+        <Route path="/product/edit/:id" element={<EditProduct />} />
       </Routes>
     </BrowserRouter>
   );
