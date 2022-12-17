@@ -9,11 +9,11 @@ import {
 
 const router = express.Router();
 
-router.get('/types', getTypes);
-router.get('/types/:id', getTypeById);
-router.post('/types', saveType);
-router.patch('/types/:id', updateType);
-router.delete('/types/:id', deleteType);
+router.get('/type', getTypes);
+router.get('/type/:id', getTypeById);
+router.post('/type', saveType);
+router.patch('/type/:id', updateType);
+router.delete('/type/:id', deleteType);
 
 
 export default router;

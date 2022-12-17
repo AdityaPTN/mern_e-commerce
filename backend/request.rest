@@ -1,12 +1,12 @@
-GET http://localhost:5000/types
+GET http://localhost:5000/type
 
 
 ###
-GET http://localhost:5000/types/639c203a8090ec4349c501b6
+GET http://localhost:5000/type/639c203a8090ec4349c501b6
 
 
 ###
-POST http://localhost:5000/types
+POST http://localhost:5000/type
 Content-Type: application/json
 
 {
@@ -14,7 +14,7 @@ Content-Type: application/json
 }
 
 ###
-PATCH http://localhost:5000/types/639c203a8090ec4349c501b6
+PATCH http://localhost:5000/type/639c203a8090ec4349c501b6
 Content-Type: application/json
 
 {
@@ -22,7 +22,7 @@ Content-Type: application/json
 }
 
 ###
-DELETE http://localhost:5000/types/639c203a8090ec4349c501b6
+DELETE http://localhost:5000/type/639c203a8090ec4349c501b6
 
 ###
 GET http://localhost:5000/category
