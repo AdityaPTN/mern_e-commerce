@@ -1,5 +1,6 @@
 import Product from '../models/ProductModel.js';
 
+
 export const getProducts = async (req, res) => {
     try{
         const products = await Product.find();
@@ -19,7 +20,22 @@ export const getProductById = async (req, res) => {
 }
 
 export const saveProduct = async (req, res) => {
-    const product = new Product(req.body);
+    console.log(req.file)
+    const name = req.body.name;
+    const price = req.body.price;
+    const stock = req.body.stock;
+    const description = req.body.description;
+    const category = req.body.category;
+    const image = req.file.filename;
+
+    const product = new Product({
+        name:name,
+        price:price,
+        stock:stock,
+        description:description,
+        category:category,
+        image:image
+    });
     try {
         const insertedProduct = await product.save();
         res.status(201).json(insertedProduct);
