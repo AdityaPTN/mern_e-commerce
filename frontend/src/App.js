@@ -3,7 +3,6 @@ import AddCategory from "./components/category/AddCategory";
 import CategoryList from "./components/category/CategoryList";
 import EditCategory from "./components/category/EditCategory";
 import Dashboard from "./components/Dashboard";
-import Header from "./components/Header";
 import AddProduct from "./components/product/AddProduct";
 import EditProduct from "./components/product/EditProduct";
 import ProductList from "./components/product/ProductList";
@@ -15,7 +14,6 @@ import TypeList from "./components/type/TypeList";
 function App() {
   return (
     <BrowserRouter>
-      <Header />
       <Routes>
       <Route path="/" element={<Dashboard />} />
         <Route path="/type" element={<TypeList />} />

@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import axios from "axios";
 import { useNavigate, Link, useParams } from 'react-router-dom';
 import { Container, Row, Form, Button } from 'react-bootstrap';
+import Header from '../Header.js';
 
 
 const EditType = () => {
@@ -31,6 +32,8 @@ const EditType = () => {
     }
 
     return (
+        <>
+        <Header />
         <Container className="my-4">
             <Row className="justify-content-md-center mx-5">
                 <Form onSubmit={updateType}>
@@ -43,6 +46,7 @@ const EditType = () => {
                 </Form>
             </Row>
         </Container>
+        </>
     );
 }
 

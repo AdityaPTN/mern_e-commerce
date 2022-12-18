@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import axios from "axios";
 import { useNavigate, Link } from 'react-router-dom';
 import { Container, Row, Form, Button } from 'react-bootstrap';
+import Header from '../Header.js';
 
 const AddProduct = () => {
     const [name, setName] = useState("");
@@ -44,6 +45,8 @@ const AddProduct = () => {
     }
 
     return (
+        <>
+        <Header />
         <Container className="my-4">
             <Row className="justify-content-md-center mx-5">
                 <Form onSubmit={saveProduct}>
@@ -76,6 +79,7 @@ const AddProduct = () => {
                 </Form>
             </Row>
         </Container>
+        </>
     );
 }
 

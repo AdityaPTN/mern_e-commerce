@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { Button, Container, Row, Table } from 'react-bootstrap';
+import Header from '../Header.js';
 
 const ProductList = () => {
     const [products, setProduct] = useState([]);
@@ -25,6 +26,8 @@ const ProductList = () => {
     }
 
     return (
+        <>
+        <Header />
         <Container className="my-4">
             <Link to="add" class='btn btn-success my-2 mx-5'>Add Product</Link>
             <Row className="justify-content-md-center mx-5">
@@ -59,6 +62,7 @@ const ProductList = () => {
                 </Table>
             </Row>
         </Container>
+        </>
     );
 }
 
