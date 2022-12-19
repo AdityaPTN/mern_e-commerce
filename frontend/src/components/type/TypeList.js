@@ -33,7 +33,7 @@ const TypeList = () => {
             <Row className="justify-content-md-center mx-5">
                 <Table striped bordered hover variant="dark">
                     <thead>
-                        <tr>
+                        <tr class="text-center">
                             <th>No</th>
                             <th>Name</th>
                             <th>Action</th>

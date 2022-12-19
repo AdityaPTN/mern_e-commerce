@@ -51,6 +51,7 @@ const AddCategory = () => {
                     </Form.Group>
                     <Form.Group className="mb-3">
                         <Form.Label>Type</Form.Label>
+                        <option selected>Select a Type</option>
                         <Form.Select value={type} onChange={handleChangeType}>
                             {types.map((type)=> (
                                 <option key={type.value} value={type.value}>{type.name}</option>

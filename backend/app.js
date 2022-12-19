@@ -22,6 +22,7 @@ app.use(express.urlencoded({
     extended: true,
     })
 );
+app.use(express.static('images'));
 
 app.use(TypeRoute);
 app.use(CategoryRoute);

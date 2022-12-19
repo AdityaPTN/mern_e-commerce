@@ -33,8 +33,9 @@ const ProductList = () => {
             <Row className="justify-content-md-center mx-5">
                 <Table striped bordered hover variant="dark">
                     <thead>
-                        <tr>
+                        <tr class="text-center">
                             <th>No</th>
+                            <th>Image</th>
                             <th>Name</th>
                             <th>Price</th>
                             <th>Stock</th>
@@ -47,8 +48,9 @@ const ProductList = () => {
                         {products.map((product, index)=> (
                             <tr key={product._id}>
                             <td>{index + 1}</td>
+                            <td><img src={`http://localhost:5000/${product.image}`} width="50"/></td>
                             <td>{product.name}</td>
-                            <td>Rp.{product.price}</td>
+                            <td>Rp. {product.price}</td>
                             <td>{product.stock}</td>
                             <td>{product.description}</td>
                             <td>{product.category}</td>

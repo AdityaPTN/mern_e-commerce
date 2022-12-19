@@ -10,6 +10,7 @@ const AddProduct = () => {
     const [stock, setStock] = useState("");
     const [description, setDescription] = useState("");
     const [category, setCategory] = useState("");
+    const [image, setImage] = useState();
     
     const [categories, setCategories] = useState([]);
     const navigate = useNavigate();
@@ -25,14 +26,15 @@ const AddProduct = () => {
 
     const saveProduct = async(e) => {
         e.preventDefault();
+        const formData = new FormData();
+        formData.append('name', name);
+        formData.append('price', price);
+        formData.append('stock', stock);
+        formData.append('description', description);
+        formData.append('category', category);
+        formData.append('image', image);
         try{
-            await axios.post('http://localhost:5000/product', {
-                name,
-                price,
-                stock,
-                description,
-                category
-            });
+            await axios.post('http://localhost:5000/product', formData);
             navigate("/product")
         }catch(error){
             console.log(error);
@@ -42,6 +44,13 @@ const AddProduct = () => {
     const handleChangeCategory = e => {
         console.log(e.target.value);
         setCategory(e.target.value);
+        console.log(category);
+    }
+
+    const handleImage = e =>{
+        console.log(e.target.files[0].name);
+        setImage(e.target.files[0]);
+        console.log(image);
     }
 
     return (
@@ -69,10 +78,15 @@ const AddProduct = () => {
                     <Form.Group className="mb-3">
                         <Form.Label>Category</Form.Label>
                         <Form.Select value={category} onChange={handleChangeCategory}>
+                            <option selected>Select a Category</option>
                             {categories.map((category)=> (
                                 <option key={category.value} value={category.value}>{category.name}</option>
                                 ))}
                         </Form.Select>
+                    </Form.Group>
+                    <Form.Group className="mb-3" >
+                        <Form.Label>Upload Image:</Form.Label>
+                        <Form.Control type="file" onChange={handleImage}/>
                     </Form.Group>
                     <Link to="/product" class='btn btn-success mx-2'>Back</Link>
                     <Button variant="primary" type="submit">Add Product</Button>
