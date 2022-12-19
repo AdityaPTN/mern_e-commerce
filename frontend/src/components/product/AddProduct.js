@@ -40,18 +40,19 @@ const AddProduct = () => {
             console.log(error);
         }
     }
-
+    
+    const handleImage = e =>{
+        console.log(e.target.files[0].name);
+        setImage(e.target.files[0]);
+        console.log(image);
+    }
+    
     const handleChangeCategory = e => {
         console.log(e.target.value);
         setCategory(e.target.value);
         console.log(category);
     }
 
-    const handleImage = e =>{
-        console.log(e.target.files[0].name);
-        setImage(e.target.files[0]);
-        console.log(image);
-    }
 
     return (
         <>
