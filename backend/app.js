@@ -7,8 +7,9 @@ import CategoryRoute from './routes/CategoryRoute.js';
 import ProductRoute from './routes/ProductRoute.js';
 
 const app = express();
+// const dbDefault = 'mongodb://localhost:27017/mern'
 //Connect db
-mongoose.connect('mongodb://localhost:27017/mern',{
+mongoose.connect('mongodb+srv://arhamsyuhada:rahasiabanget@cluster0.fbzupuv.mongodb.net/mern2?retryWrites=true&w=majority',{
     useNewUrlParser:true,
     useUnifiedTopology: true
 });

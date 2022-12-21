@@ -32,8 +32,8 @@ POST http://localhost:5000/category
 Content-Type: application/json
 
 {
-    "name": "baju koko",
-    "type": "baju"
+    "name": "Sneaker",
+    "type": "Sepatu"
 }
 
 ###

@@ -1,0 +1,16 @@
+.card-title {
+  text-decoration: none;
+  color: black;
+}
+.card-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.cardku {
+  flex-wrap: wrap;
+}
+
+.card-img-top {
+  height: 286px;
+}
