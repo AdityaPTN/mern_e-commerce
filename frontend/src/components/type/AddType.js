@@ -15,7 +15,7 @@ const AddType = () => {
             await axios.post('http://localhost:5000/type', {
                 name
             });
-            navigate("/type")
+            navigate("/admin/type")
         }catch(error){
             console.log(error);
         }
@@ -31,7 +31,7 @@ const AddType = () => {
                         <Form.Label>Name</Form.Label>
                         <Form.Control type="text" placeholder="Enter type name" value={name} onChange={(e)=> setName(e.target.value)}/>
                     </Form.Group>
-                    <Link to="/type" class='btn btn-success mx-2'>Back</Link>
+                    <Link to="/admin/type" class='btn btn-success mx-2'>Back</Link>
                     <Button variant="primary" type="submit">Add Type</Button>
                 </Form>
             </Row>

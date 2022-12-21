@@ -36,7 +36,7 @@ const EditCategory = () => {
                 name,
                 type
             });
-            navigate("/category")
+            navigate("/admin/category")
         }catch(error){
             console.log(error);
         }
@@ -65,7 +65,7 @@ const EditCategory = () => {
                             ))}
                         </Form.Select>
                     </Form.Group>
-                    <Link to="/category" class='btn btn-success mx-2'>Back</Link>
+                    <Link to="/admin/category" class='btn btn-success mx-2'>Back</Link>
                     <Button variant="primary" type="submit">Update Category</Button>
                 </Form>
             </Row>

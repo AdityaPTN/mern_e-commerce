@@ -35,7 +35,7 @@ const AddProduct = () => {
         formData.append('image', image);
         try{
             await axios.post('http://localhost:5000/product', formData);
-            navigate("/product")
+            navigate("/admin/product")
         }catch(error){
             console.log(error);
         }
@@ -89,7 +89,7 @@ const AddProduct = () => {
                         <Form.Label>Upload Image:</Form.Label>
                         <Form.Control type="file" onChange={handleImage}/>
                     </Form.Group>
-                    <Link to="/product" class='btn btn-success mx-2'>Back</Link>
+                    <Link to="/admin/product" class='btn btn-success mx-2'>Back</Link>
                     <Button variant="primary" type="submit">Add Product</Button>
                 </Form>
             </Row>

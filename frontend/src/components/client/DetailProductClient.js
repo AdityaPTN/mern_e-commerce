@@ -27,8 +27,8 @@ function DetailProductClient() {
           </div>
           <div class="col-8">
             <div class="jumbotron">
-              <h1 class="fs-3 fw-bold text-light">{product.name}</h1>
-              <p class="fs-4 fw-semibold">{product.price}</p>
+              <h1 class="fs-3 fw-bold text-dark">{product.name}</h1>
+              <p class="fs-4 fw-semibold">Rp. {product.price}</p>
               <p class="fs-6 txt">{product.description}</p>
 
               <div class="row">

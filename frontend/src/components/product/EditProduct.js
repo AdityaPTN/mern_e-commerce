@@ -44,7 +44,7 @@ const EditProduct = () => {
                 description,
                 category
             });
-            navigate("/product")
+            navigate("/admin/product")
         }catch(error){
             console.log(error);
         }
@@ -85,7 +85,7 @@ const EditProduct = () => {
                                 ))}
                         </Form.Select>
                     </Form.Group>
-                    <Link to="/product" class='btn btn-success mx-2'>Back</Link>
+                    <Link to="/admin/product" class='btn btn-success mx-2'>Back</Link>
                     <Button variant="primary" type="submit">Update Product</Button>
                 </Form>
             </Row>

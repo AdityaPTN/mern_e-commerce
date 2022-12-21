@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from "axios";
 import { useNavigate, Link } from 'react-router-dom';
-import { Container, Row, Form, Button } from 'react-bootstrap';
+import { Container, Row, Form } from 'react-bootstrap';
 import Header from '../Header.js';
 
 
@@ -28,7 +28,7 @@ const AddCategory = () => {
                 name,
                 type
             });
-            navigate("/category")
+            navigate("/admin/category")
         } catch (error) {
             console.log(error);
         }
@@ -58,7 +58,7 @@ const AddCategory = () => {
                                 ))}
                             </Form.Select>
                         </Form.Group>
-                        <Link to="/category" class='btn btn-success mx-2'>Back</Link>
+                        <Link to="/admin/category" class='btn btn-success mx-2'>Back</Link>
                         <button className="btn btn-primary" type="submit">Add Category</button>
                     </Form>
                 </Row>

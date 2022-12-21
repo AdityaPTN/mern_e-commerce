@@ -25,7 +25,7 @@ const EditType = () => {
             await axios.patch(`http://localhost:5000/type/${id}`, {
                 name
             });
-            navigate("/type")
+            navigate("/admin/type")
         }catch(error){
             console.log(error);
         }
@@ -41,7 +41,7 @@ const EditType = () => {
                         <Form.Label>Name</Form.Label>
                         <Form.Control type="text" placeholder="Enter type name" value={name} onChange={(e)=> setName(e.target.value)}/>
                     </Form.Group>
-                    <Link to="/type" class='btn btn-success mx-2'>Back</Link>
+                    <Link to="/admin/type" class='btn btn-success mx-2'>Back</Link>
                     <Button variant="primary" type="submit">Update Type</Button>
                 </Form>
             </Row>
