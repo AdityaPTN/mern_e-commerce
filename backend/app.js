@@ -8,8 +8,9 @@ import ProductRoute from './routes/ProductRoute.js';
 
 const app = express();
 // const dbDefault = 'mongodb://localhost:27017/mern'
+// mongodb+srv://arhamsyuhada:rahasiabanget@cluster0.fbzupuv.mongodb.net/mern2?retryWrites=true&w=majority
 //Connect db
-mongoose.connect('mongodb+srv://arhamsyuhada:rahasiabanget@cluster0.fbzupuv.mongodb.net/mern2?retryWrites=true&w=majority',{
+mongoose.connect('mongodb://localhost:27017/mern',{
     useNewUrlParser:true,
     useUnifiedTopology: true
 });

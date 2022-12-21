@@ -20,7 +20,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Client />} />
         <Route path="/product" element={<ProductClient />} />
-        <Route path="/detail" element={<DetailProductClient />} />
+        <Route path="/product/:id" element={<DetailProductClient />} />
 
         <Route path="/admin" element={<Dashboard />} />
         <Route path="/admin/type" element={<TypeList />} />

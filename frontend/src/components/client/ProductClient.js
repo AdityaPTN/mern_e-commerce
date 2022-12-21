@@ -1,7 +1,8 @@
 import axios from 'axios'
 import { useState, useEffect } from 'react'
-import { Container, Button, Card } from 'react-bootstrap'
-import HeaderClient from './HeaderClient'
+import { Container, Button, Card } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
+import HeaderClient from './HeaderClient';
 
 function ProductClient() {
   const [products, setProduct] = useState([]);
@@ -30,7 +31,7 @@ function ProductClient() {
                 <a class="card-title" href="/detail"><h5>{product.name}</h5></a>
                 <h6 class="card-subtitle mb-2 text-muted">Rp. {product.price}</h6>
                 <div className="text-center">
-                  <a href="/detail" class="btn btn-primary">Detail</a>
+                  <Link to={`/product/${product._id}`} class="btn btn-primary">Detail</Link>
                 </div>
               </div>
             </div>
