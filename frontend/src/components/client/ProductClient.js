@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import HeaderClient from './HeaderClient';
 
 function ProductClient() {
+  
   const [products, setProduct] = useState([]);
 
   const getProducts = async () => {
@@ -15,6 +16,14 @@ function ProductClient() {
   useEffect(() => {
     getProducts();
   }, []);
+
+  const formatNumbering = (x) => {
+    x = x.toString();
+    var pattern = /(-?\d+)(\d{3})/;
+    while (pattern.test(x))
+      x = x.replace(pattern, "$1,$2");
+    return x;
+  }
 
   // style={{ width: '18rem' }}
   return (
@@ -29,7 +38,7 @@ function ProductClient() {
               </a>
               <div class="card-body">
                 <a class="card-title" href="/detail"><h5>{product.name}</h5></a>
-                <h6 class="card-subtitle mb-2 text-muted">Rp. {product.price}</h6>
+                <h6 class="card-subtitle mb-2 text-muted">Rp. {formatNumbering(product.price)}</h6>
                 <div className="text-center">
                   <Link to={`/product/${product._id}`} class="btn btn-primary">Detail</Link>
                 </div>
