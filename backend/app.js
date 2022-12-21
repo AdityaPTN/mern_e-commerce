@@ -10,7 +10,7 @@ const app = express();
 // const dbDefault = 'mongodb://localhost:27017/mern'
 // mongodb+srv://arhamsyuhada:rahasiabanget@cluster0.fbzupuv.mongodb.net/mern2?retryWrites=true&w=majority
 //Connect db
-mongoose.connect('mongodb://localhost:27017/mern',{
+mongoose.connect('mongodb+srv://arhamsyuhada:rahasiabanget@cluster0.fbzupuv.mongodb.net/mern2?retryWrites=true&w=majority',{
     useNewUrlParser:true,
     useUnifiedTopology: true
 });
