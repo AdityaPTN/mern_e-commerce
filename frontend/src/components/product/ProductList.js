@@ -18,7 +18,7 @@ const ProductList = () => {
 
     const deleteProduct = async (id) => {
         try {
-            await axios.delete(`http://localhost:5000/product/${id}`);
+            axios.delete(`http://localhost:5000/product/${id}`);
             getProducts();
         } catch (err) {
             console.log(err);
@@ -29,8 +29,8 @@ const ProductList = () => {
         <>
             <Header />
             <Container className="my-4">
-                <Link to="add" class='btn btn-success my-2 mx-5'>Add Product</Link>
-                <Row className="justify-content-md-center mx-5">
+                <Link to="add" class='btn btn-success my-2 mx-2'>Add Product</Link>
+                <Row className="justify-content-md-center mx-2">
                     <Table striped bordered hover variant="dark">
                         <thead>
                             <tr class="text-center">

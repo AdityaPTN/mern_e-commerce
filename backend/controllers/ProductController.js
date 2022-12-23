@@ -1,5 +1,5 @@
 import Product from '../models/ProductModel.js';
-
+import fs from 'fs';
 
 export const getProducts = async (req, res) => {
     try{
@@ -53,9 +53,17 @@ export const updateProduct = async (req, res) => {
     }
 }
 
-export const deleteProduct = async (req, res) => {
+export const deleteProduct = (req, res) => {
     try {
-        const deletedProduct = await Product.deleteOne({_id: req.params.id});
+        const deletedProduct = Product.findByIdAndRemove({_id: req.params.id}, (err, result)=> {
+            if(result.image != ''){
+                try{
+                    fs.unlinkSync('images/'+result.image);
+                }catch(err){
+                    console.log(err);
+                }
+            }
+        });
         res.status(200).json(deletedProduct);
     }catch(error){
         res.status(400).json({message: error.message});

@@ -33,11 +33,11 @@ function ProductClient() {
         {products.map((product) => (
           <Container key={product._id}>
             <div class="card cardku" style={{ width: "18rem" }}>
-              <a href="/detail">
+              <Link to={`/product/${product._id}`} class="btn btn-primary">
                 <img src={`http://localhost:5000/${product.image}`} class="card-img-top" alt="..." />
-              </a>
+              </Link>
               <div class="card-body">
-                <a class="card-title" href="/detail"><h5>{product.name}</h5></a>
+                <Link to={`/product/${product._id}`} class="card-title"><h5>{product.name}</h5></Link>
                 <h6 class="card-subtitle mb-2 text-muted">Rp. {formatNumbering(product.price)}</h6>
                 <div className="text-center">
                   <Link to={`/product/${product._id}`} class="btn btn-primary">Detail</Link>
