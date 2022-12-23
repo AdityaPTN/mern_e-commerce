@@ -45,6 +45,7 @@ const ProductList = () => {
                             </tr>
                         </thead>
                         <tbody>
+                            {console.log(products)}
                             {products.map((product, index) => (
                                 <tr key={product._id}>
                                     <td>{index + 1}</td>

@@ -5,6 +5,7 @@ import cors from "cors";
 import TypeRoute from './routes/TypeRoute.js';
 import CategoryRoute from './routes/CategoryRoute.js';
 import ProductRoute from './routes/ProductRoute.js';
+import CartRoute from './routes/CartRoute.js'
 
 const app = express();
 // const dbDefault = 'mongodb://localhost:27017/mern'
@@ -29,6 +30,7 @@ app.use(express.static('images'));
 app.use(TypeRoute);
 app.use(CategoryRoute);
 app.use(ProductRoute);
+app.use(CartRoute);
 
 app.listen(5000, ()=> console.log("Server run on port 5000"));
 

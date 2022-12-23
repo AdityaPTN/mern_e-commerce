@@ -34,7 +34,10 @@ function HeaderClient() {
             </Nav.Link>
             
           </Nav>
-            <Button variant="light"><i class="bi bi-cart4"></i></Button>
+            <Button variant="light">
+              <Link to="/cart" style={brand}>
+                <i class="bi bi-cart4"></i>
+              </Link></Button>
             <Button variant="light"><Link to="/admin" style={brand}>Admin</Link></Button>
         </Navbar.Collapse>
       </Container>

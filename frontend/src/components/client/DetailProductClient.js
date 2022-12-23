@@ -1,11 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { useParams } from 'react-router-dom';
+import { Navigate, useParams } from 'react-router-dom';
 import HeaderClient from './HeaderClient';
+import { useNavigate} from 'react-router-dom';
 
 function DetailProductClient() {
   const [product, setProduct] = useState([]);
+  const [product_name, setProductName] = useState("");
+  const [price, setPrice] = useState(0);
+  const [quantity, setQuantity] = useState(1);
+  const [image, setImage] = useState("");
   const {id} = useParams();
+  const navigate = useNavigate();
 
   useEffect(() => {
     getProduct();
@@ -13,7 +19,27 @@ function DetailProductClient() {
 
   const getProduct = async () => {
       const res = await axios.get(`http://localhost:5000/product/${id}`);
+      console.log(res.data)
       setProduct(res.data);
+      setProductName(res.data.name);
+      setPrice(res.data.price);
+      setImage(res.data.image);
+  }
+
+  const addToCart = async(e) => {
+    e.preventDefault();
+    console.log(quantity);
+    try{
+      await axios.post('http://localhost:5000/cart',{
+        product_name,
+        price,
+        quantity,
+        image
+      });
+      navigate('/cart')
+    }catch(err){
+      console.log(err)
+    }
   }
   
 
@@ -42,7 +68,13 @@ function DetailProductClient() {
                   <p class="fs-6 txt">Qty: {product.stock}</p>
                 </div>
               </div>
-              <a type="submit" class="btn btn-success">Add to Cart</a>
+              <form onSubmit={addToCart}>
+                <input type="hidden" value={product_name}/>
+                <input type="hidden" value={price}/>
+                <input type="hidden" value={image}/>
+                <input type="hidden" value={quantity}/>
+                <input type="submit" className='btn btn-primary' value="Add to Cart"/>
+              </form>
             </div>
           </div>
         </div>
