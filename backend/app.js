@@ -5,6 +5,7 @@ import cors from "cors";
 import TypeRoute from './routes/TypeRoute.js';
 import CategoryRoute from './routes/CategoryRoute.js';
 import ProductRoute from './routes/ProductRoute.js';
+import OrderRoute from './routes/OrderRoute.js';
 import CartRoute from './routes/CartRoute.js'
 
 const app = express();
@@ -30,6 +31,7 @@ app.use(express.static('images'));
 app.use(TypeRoute);
 app.use(CategoryRoute);
 app.use(ProductRoute);
+app.use(OrderRoute);
 app.use(CartRoute);
 
 app.listen(5000, ()=> console.log("Server run on port 5000"));

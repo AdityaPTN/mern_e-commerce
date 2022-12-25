@@ -13,6 +13,7 @@ import ProductList from "./components/product/ProductList";
 import AddType from "./components/type/AddType";
 import EditType from "./components/type/EditType";
 import TypeList from "./components/type/TypeList";
+import OrderList from "./components/order/OrderList";
 
 function App() {
   return (
@@ -34,6 +35,8 @@ function App() {
         <Route path="/admin/product" element={<ProductList />} />
         <Route path="/admin/product/add" element={<AddProduct />} />
         <Route path="/admin/product/edit/:id" element={<EditProduct />} />
+        <Route path="/admin/order" element={<OrderList />} />
+        
       </Routes>
     </BrowserRouter>
   );

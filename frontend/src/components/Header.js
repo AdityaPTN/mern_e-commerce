@@ -18,6 +18,7 @@ function Header() {
         <Container>
           <Navbar.Brand><Link to="/admin" style={dashboard}>Dashboard</Link></Navbar.Brand>
           <Nav className="me-auto mx-2">
+          <Nav.Link><Link to="/admin/order" style={link}>Order</Link></Nav.Link>
             <Nav.Link><Link to="/admin/product" style={link}>Product</Link></Nav.Link>
             <Nav.Link><Link to="/admin/category" style={link}>Category</Link></Nav.Link>
             <Nav.Link><Link to="/admin/type" style={link}>Type</Link></Nav.Link>
