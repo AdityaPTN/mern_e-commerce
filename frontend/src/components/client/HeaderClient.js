@@ -32,6 +32,9 @@ function HeaderClient() {
             <Nav.Link>
               <Link to="/product" style={link}>Product</Link>
             </Nav.Link>
+            <Nav.Link>
+              <Link to="/check-order" style={link}>CheckOrder</Link>
+            </Nav.Link>
             
           </Nav>
             <Button variant="light">
