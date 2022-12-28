@@ -41,7 +41,6 @@ function DetailProductClient() {
       console.log(err)
     }
   }
-  
 
   return (
     <>
@@ -55,17 +54,20 @@ function DetailProductClient() {
           <div class="col-8">
             <div class="jumbotron">
               <h1 class="fs-3 fw-bold text-dark">{product.name}</h1>
-              <p class="fs-4 fw-semibold">Rp. {product.price}</p>
+              <p class="fs-4 fw-semibold">Rp. {new Intl.NumberFormat().format(product.price)}</p>
+              <h6 class="text-muted">Deskripsi Produk :</h6>
               <p class="fs-6 txt">{product.description}</p>
 
               <div class="row">
                 <div class="col">
+                  <h6 className='text-muted'>Kategori :</h6>
                   <p class="fs txt">{product.category}</p>
                 </div>
               </div>
               <div class="row">
                 <div class="col">
-                  <p class="fs-6 txt">Qty: {product.stock}</p>
+                <h6 className='text-muted'>Stock :</h6>
+                  <p class="fs-6 txt">{product.stock}</p>
                 </div>
               </div>
               <form onSubmit={addToCart}>

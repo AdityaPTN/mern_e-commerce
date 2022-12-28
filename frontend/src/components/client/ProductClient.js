@@ -33,7 +33,7 @@ function ProductClient() {
         {products.map((product) => (
           <Container key={product._id}>
             <div class="card cardku" style={{ width: "18rem" }}>
-              <Link to={`/product/${product._id}`} class="btn btn-primary">
+              <Link to={`/product/${product._id}`} class="btn btn-light">
                 <img src={`http://localhost:5000/${product.image}`} class="card-img-top" alt="..." />
               </Link>
               <div class="card-body">
