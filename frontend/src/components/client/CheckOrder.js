@@ -37,9 +37,9 @@ const CheckOrder = () => {
             <tr>
               <th>Code</th>
               <th>Items</th>
+              <th>Status</th>
               <th>Total</th>
               <th>Date</th>
-              <th>Status</th>
             </tr>
           </thead>
           {orders.map((order) => (
