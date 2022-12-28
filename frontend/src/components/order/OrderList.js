@@ -15,6 +15,7 @@ const OrderList = () => {
     const getOrders = async() => {
         const res = await axios.get('http://localhost:5000/order');
         setOrder(res.data);
+        console.log(orders);
     }
 
     const deleteOrder = async(id) =>{
@@ -28,9 +29,12 @@ const OrderList = () => {
 
     const conditionalButton = (status, id) => {
         if(status === "Approve Order"){
-            return <Button onClick={() => changeStatus(id, "On Packaging")} variant="danger">{status}</Button>
+            return <>
+            <Button onClick={() => changeStatus(id, "On Packaging")} variant="warning">{status}</Button>
+            <Button onClick={() => deleteOrder(id)} variant="danger" className='mx-2'>Decline</Button>
+            </>
         }else if (status === "On Packaging"){
-            return <Button onClick={() => changeStatus(id, "Ready")} variant="warning">{status}</Button>
+            return <Button onClick={() => changeStatus(id, "Ready")} variant="info">{status}</Button>
         }else if (status === "Ready"){
             return <Button variant="success">{status}</Button>
         }

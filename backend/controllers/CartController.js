@@ -36,3 +36,12 @@ export const deleteCart = async (req, res) => {
         res.status(400).json({message: error.message});
     }
 }
+
+export const deleteAllCart = async (req, res) => {
+    try {
+        const deleteAll = await Cart.deleteMany({total : {$gte:10}});
+        res.status(200).json(deleteAll);
+    }catch(error){
+        res.status(400).json({message: error.message});
+    }
+}

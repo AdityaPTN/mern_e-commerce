@@ -8,8 +8,9 @@ const Cart = () => {
     const [quantity, setQuantity] = useState(1);
     const [total, setTotal] = useState(0);
     const [code, setCode] = useState("");
-    const [product_list, setProduct] = useState("asdasdas");
+    const [product_list, setProduct] = useState("");
     const [status] = useState("Approve Order");
+    const [isCheckOut, setCheckOut] = useState(false);
     const navigate = useNavigate();
     
     useEffect(()=> {
@@ -20,7 +21,9 @@ const Cart = () => {
     const getCart = async () => {
         const res = await axios.get('http://localhost:5000/cart');
         setCart(res.data);
-        countTotal();
+        countTotal(res.data)
+        productList();
+        console.log(cart);
     }
 
     const deleteItem = async (id) => {
@@ -32,12 +35,20 @@ const Cart = () => {
         }
     }
 
-    const increaseQuantity = async (id, qty) => {
+    const deleteAllItem = async() => {
+        try{
+            await axios.delete(`http://localhost:5000/cart`);
+            getCart();
+        }catch(err){
+            console.log(err);
+        }
+    }
+
+    const increaseQuantity = (id, qty) => {
         console.log(quantity)
         setQuantity(qty + 1)
-        console.log(`qty = ${qty}`)
         try {
-            await axios.patch(`http://localhost:5000/cart/${id}`,{
+             axios.patch(`http://localhost:5000/cart/${id}`,{
                 quantity
             });
             getCart();
@@ -58,13 +69,12 @@ const Cart = () => {
         }
     }
 
-    const countTotal = () => {
-        console.log(cart);
-        setTotal(0);
+    const countTotal = async() => {
+        let result = 0;
         for(var i=0;i<cart.length;i++){
-            setTotal(total + (cart[i].price * cart[i].quantity))
+            result += result + (cart[i].price * cart[i].quantity)
         }
-
+        setTotal(result)
     }
 
     const characters ='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
@@ -78,7 +88,16 @@ const Cart = () => {
         setCode(result)
     }
 
+    const productList = async() => {
+        let result = '';
+        for(var i=0;i<cart.length;i++){
+            result += result + cart[i].product_name + " : " + cart[i].quantity + "_"
+        }
+        setProduct(result)
+    }
+
     const checkOut = async(e) => {
+        setCheckOut(true);
         e.preventDefault();
         console.log(code);
         try{
@@ -88,12 +107,12 @@ const Cart = () => {
                 code,
                 status
         });
-            
         }catch(err){
             console.log(err)
         }
+        deleteAllItem();
+        setTotal(0);
     }
-
 
     return (
         <>
@@ -122,13 +141,12 @@ const Cart = () => {
                                 </div>
                             </td>
                             <td>
-                                <button onClick={(e) => decreaseQuantity(cart._id, cart.quantity)}>-</button>
+                                <button onClick={(e) => decreaseQuantity(cart._id, cart.quantity)} className="btn btn-sm">-</button>
                                 {cart.quantity}
-                                <button onClick={(e) => increaseQuantity(cart._id, cart.quantity)}>+</button>
+                                <button onClick={(e) => increaseQuantity(cart._id, cart.quantity)} className="btn btn-sm">+</button>
                             </td>
                             <td>
                                 <span>Rp. {cart.price * cart.quantity}</span>
-                                
                             </td>
                         </tr>
                     ))}
@@ -141,16 +159,17 @@ const Cart = () => {
                         </tr>
                     </table>
                 </div>
-                <form onSubmit={checkOut}>
-                    <input type="hidden" value={product_list}/>
-                    <input type="hidden" value={total}/>
-                    <input type="hidden" value={code}/>
-                    <input type="hidden" value={status}/>
-                    <input type="submit" className='btn btn-success' value="Check Out"/>
-                </form>
+                <button className='btn btn-success' onClick={checkOut}>Check Out</button>
+            <div className='my-4'>
+                {isCheckOut? <Code code={code}/> : null}
+            </div>
             </div>
         </>
     );
 }
+
+const Code = ({ code }) => {
+    return <h1 className='justify-content-md-center'>Your Code: {code}</h1>;
+};
 
 export default Cart;
