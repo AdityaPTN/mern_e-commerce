@@ -6,6 +6,8 @@ import Client from "./components/client/Client";
 import DetailProductClient from "./components/client/DetailProductClient";
 import ProductClient from "./components/client/ProductClient";
 import Cart from './components/client/Cart'
+import CheckOrder from "./components/client/CheckOrder";
+
 import Dashboard from "./components/Dashboard";
 import AddProduct from "./components/product/AddProduct";
 import EditProduct from "./components/product/EditProduct";
@@ -23,6 +25,7 @@ function App() {
         <Route path="/product" element={<ProductClient />} />
         <Route path="/product/:id" element={<DetailProductClient />} />
         <Route path="/cart" element={<Cart />} />
+        <Route path="/check-order" element={<CheckOrder />} />
 
 
         <Route path="/admin" element={<Dashboard />} />

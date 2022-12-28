@@ -9,8 +9,6 @@ import OrderRoute from './routes/OrderRoute.js';
 import CartRoute from './routes/CartRoute.js'
 
 const app = express();
-// const dbDefault = 'mongodb://localhost:27017/mern'
-// mongodb+srv://arhamsyuhada:rahasiabanget@cluster0.fbzupuv.mongodb.net/mern2?retryWrites=true&w=majority
 //Connect db
 mongoose.connect('mongodb+srv://arhamsyuhada:rahasiabanget@cluster0.fbzupuv.mongodb.net/mern2?retryWrites=true&w=majority',{
     useNewUrlParser:true,
