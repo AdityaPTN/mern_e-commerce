@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 import all_orders from '../../src/components/orders.js';
 import {calculateRange, sliceData} from '../../src/components/table-pagination.js';
 import DashboardHeader from '../../src/components/dashboardheader.jsx';
-import '../css/style.css';
+import '../css/orders.css';
 import DoneIcon from '../../src/assets/icons/done.svg';
 import CancelIcon from '../../src/assets/icons/cancel.svg';
 import RefundedIcon from '../../src/assets/icons/refunded.svg';
@@ -63,7 +63,6 @@ function Orders () {
                         <th>ID</th>
                         <th>DATE</th>
                         <th>STATUS</th>
-                        <th>COSTUMER</th>
                         <th>PRODUCT</th>
                         <th>REVENUE</th>
                     </thead>

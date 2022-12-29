@@ -1,30 +1,14 @@
 import React from 'react';
-import '../css/style.css';
+import '../css/Dashboard.css';
+import Header from './Header.js';
 import NotificationIcon from '../../src/assets/icons/notification.svg';
 import SettingsIcon from '../../src/assets/icons/settings.svg';
 
 function DashboardHeader ({ btnText, onClick }) {
     return(
-        <div className='dashbord-header-container'>
-            {btnText && 
-                <button className='dashbord-header-btn' onClick={onClick}>{btnText}</button>
-            }
-
-            <div className='dashbord-header-right'>
-                <img 
-                    src={NotificationIcon}
-                    alt='notification-icon'
-                    className='dashbord-header-icon' />
-                <img 
-                    src={SettingsIcon}
-                    alt='settings-icon'
-                    className='dashbord-header-icon' />
-                <img
-                    className='dashbord-header-avatar'
-                    alt=''
-                    src='https://reqres.in/img/faces/9-image.jpg' />
-            </div>
-        </div>
+        <>
+        <Header />
+    </>
     )
 }
 
