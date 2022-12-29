@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../build/css/style.css';
+import '../css/style.css';
 import NotificationIcon from '../../src/assets/icons/notification.svg';
 import SettingsIcon from '../../src/assets/icons/settings.svg';
 

@@ -39,6 +39,7 @@ const Cart = () => {
         try{
             await axios.delete(`http://localhost:5000/cart`);
             getCart();
+            setTotal(0);
         }catch(err){
             console.log(err);
         }
@@ -134,7 +135,7 @@ const Cart = () => {
                                 <div>
                                     <p><img src={`http://localhost:5000/${cart.image}`} alt="#" width="50" />
                                     {cart.product_name}
-                                    <small><span>Rp. </span>{cart.price}</small>
+                                    <small><span>Rp. {cart.price}</span></small>
                                     <br/>
                                     <button onClick={() => deleteItem(cart._id)} className="btn btn-sm btn-danger">Delete</button>
                                     </p>
